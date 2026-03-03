@@ -1,0 +1,29 @@
+import matplotlib.pyplot as plt
+import math
+
+# Input sizes
+n = [5, 10, 20, 40, 80, 160]
+
+# Time complexity functions
+O1 = [1 for _ in n]                 # O(1)
+Olog = [math.log2(i) for i in n]    # O(log n)
+On = [i for i in n]                 # O(n)
+On2 = [i*i for i in n]              # O(n^2)
+
+# Plot graph
+plt.figure(figsize=(8, 6))
+plt.plot(n, O1, marker='o', label="O(1)")
+plt.plot(n, Olog, marker='s', label="O(log n)")
+plt.plot(n, On, marker='^', label="O(n)")
+plt.plot(n, On2, marker='x', label="O(n²)")
+
+# Log scale for better comparison
+plt.yscale("log")
+
+plt.xlabel("Input Size (n)")
+plt.ylabel("Growth (Log Scale)")
+plt.title("Time Complexity Comparison Graph")
+plt.legend()
+plt.grid(True)
+
+plt.show()
